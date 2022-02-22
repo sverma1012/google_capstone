@@ -1,2 +1,5 @@
-# google_capstone
-Google Data Analytics Capstone 
+# Google Capstone
+
+## Google Data Analytics Capstone Course
+
+More details coming
