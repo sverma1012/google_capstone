@@ -49,4 +49,31 @@ table(weight$Id) # Most values are duplicated.
 # Two Ids are repeated the most times. 
 # This can cause the data to be unreliable as it is dependent on the values of just two participants.
 
+### Data Wrangling
 
+#install.packages("dplyr")
+# Run the above code once if package is not already installed.
+
+library(dplyr)
+
+## Merge sleep and activity datasets
+
+# create a new dataframe that has only one instance of each Id.
+activity2 = activity %>%
+  group_by(Id) %>%
+  summarise_at(vars(Calories), list(name = mean))
+
+# Change column name to describe the values properly.
+colnames(activity2)[2] = "calories"
+colnames(activity2)
+
+# Create a new dataframe that has only one instance of each Id.
+sleep2 = sleep %>%
+  group_by(Id) %>%
+  summarise_at(vars(TotalMinutesAsleep), list(name = mean))
+
+# Change column name to describe the values properly.
+colnames(sleep2)[2] = 'minutesAsleep'
+colnames(sleep2)
+
+# 
