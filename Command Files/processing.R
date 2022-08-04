@@ -103,3 +103,13 @@ weightActivity = merge(weight2, activity2, by='Id')
 weightActivity # 8 observations
 
 ## All datasets required for analysis have been completed.
+
+## Export dataframes
+
+# sleepActivity
+write.csv(sleepActivity, "../Data/Importable Data/sleepActivity.csv", row.names = FALSE)
+
+# weightActivity
+write.csv(weightActivity, "../Data/Importable Data/weightActivity.csv", row.names = FALSE)
+
+
