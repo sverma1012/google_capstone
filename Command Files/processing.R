@@ -111,5 +111,3 @@ write.csv(sleepActivity, "../Data/Importable Data/sleepActivity.csv", row.names 
 
 # weightActivity
 write.csv(weightActivity, "../Data/Importable Data/weightActivity.csv", row.names = FALSE)
-
-
