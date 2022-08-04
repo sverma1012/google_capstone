@@ -91,4 +91,15 @@ sleepActivity = merge(activity2, sleep2, by="Id")
 sleepActivity # 24 observations
 # This data frame will be used to analyze the correlation between calories and minutes asleep.
 
+## Merge activity and weight data frames.
 
+# Create new data frame to have one instance of Id.
+weight2 = weight %>%
+  group_by(Id) %>%
+  summarise_at(vars(WeightKg, BMI), list(name = mean))
+
+# Merge activity and weight dataframes
+weightActivity = merge(weight2, activity2, by='Id')
+weightActivity # 8 observations
+
+## All datasets required for analysis have been completed.
