@@ -61,4 +61,8 @@ sleepActivity %>%
 # The average calories of this set of participants is 2290, approx. the same as the activity data frrame.
 # The minutes asleep describes how much, on average, each participant slept while their data was being recorded.
 
+### Data Analysis
 
+## Explore relationships
+
+# 
