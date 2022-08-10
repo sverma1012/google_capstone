@@ -57,5 +57,8 @@ sleepActivity %>%
   select(minutesAsleep, calories) %>%
   summary()
 
-# The average minutes asleep is 378 minutes. 
+# The average minutes asleep is 378 minutes.
+# The average calories of this set of participants is 2290, approx. the same as the activity data frrame.
+# The minutes asleep describes how much, on average, each participant slept while their data was being recorded.
+
 
