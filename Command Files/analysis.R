@@ -107,10 +107,22 @@ cor(weightActivity$WeightKg_name, weightActivity$calories) # 0.37
 
 # Sleep and Calories
 
+sleepActivity %>%
+  ggplot(aes(x = minutesAsleep, y = calories)) +
+  geom_point() +
+  geom_smooth(method = lm)
+
+cor(sleepActivity$minutesAsleep, sleepActivity$calories) # -0.04
+
+# Close to no correlation between calories lost and minutes asleep.
+# However, the visualization shows that most of the participants
+# sleep between 300 and 500 minutes per day (around 8 hours),
+# and these participants lose a range of calories.
 
 
 
-## SHARE: Focus morre on these people.
+## SHARE: Focus more on people between 85 and 95 kgs.
+  # Focus on people who sleep between 300 to 500 mins. 
 
 
 
