@@ -119,10 +119,33 @@ cor(sleepActivity$minutesAsleep, sleepActivity$calories) # -0.04
 # sleep between 300 and 500 minutes per day (around 8 hours),
 # and these participants lose a range of calories.
 
+# Total steps and Calories
 
+activity %>%
+  ggplot(aes(x = TotalSteps, y = Calories)) +
+  geom_point() +
+  geom_smooth(method = lm)
+
+cor(activity$TotalSteps, activity$Calories) # 0.6
+
+# The correlation coefficient shows that there is moderate correlation
+# between the two variables.
+# The visualization corroborates this where a clear positive trend can
+# be seen. Most participants had steps of around 0 and 2000 per day.
+
+# Total Distance and Calories
+
+activity %>%
+  ggplot(aes(x = TotalDistance, y = Calories)) +
+  geom_point() +
+  geom_smooth(method = lm)
+
+cor(activity$TotalDistance, activity$Calories)
 
 ## SHARE: Focus more on people between 85 and 95 kgs.
   # Focus on people who sleep between 300 to 500 mins. 
+  # Help people increase steps.
+# 
 
 
 
