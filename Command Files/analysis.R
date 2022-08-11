@@ -1,8 +1,12 @@
 # Author: Sneha Verma
 # Date of Creation: 4 August 2022
-# Purpose of Script: This script will analyze the data. It details the import, manipulation, and wrangling of the data.
+# Purpose of Script: This script will analyze the data.
+# It details the import, manipulation, and wrangling of the data.
 
 ## Some exploratory analysis has been completed in processing.R.
+
+install.packages("dplyr")
+library(dplyr)
 
 ### Import data sets
 
@@ -27,12 +31,15 @@ colnames(weightActivity) # 4 columns
 n_distinct(weightActivity$Id) # 8 individual participants
 nrow(weightActivity) # 8 observations
 
-# The activity data frame has the most participants compared to the other frames.
-# Results from this analysis may not be reliable due to the small sample of each data frame.
+# The activity data frame has the most participants
+# compared to the other frames.
+# Results from this analysis may not be reliable
+# due to the small sample of each data frame.
 
 ## summary statistics for activity
 activity %>%
-  select(TotalSteps, TotalDistance, VeryActiveMinutes, SedentaryMinutes, Calories) %>%
+  select(TotalSteps, TotalDistance, VeryActiveMinutes, 
+         SedentaryMinutes, Calories) %>%
   summary()
 
 # The results show that the average steps taken by all participants is 7638.
@@ -65,4 +72,45 @@ sleepActivity %>%
 
 ## Explore relationships
 
-# 
+# Weight and BMI
+
+install.packages("tidyverse")
+
+library(ggplot2)
+
+ggplot(data = weight, aes(x=WeightKg, y=BMI)) + 
+  geom_point(alpha = 1/5, size = 2) + 
+  geom_smooth(method = lm)
+
+# There is an outlier in the data with a weight of approx. 140 kgs, which could cause errors in further analysis.
+# According to the trend line, there is a positive correlation between BMI and weight.
+
+ggplot(data = weight, aes(x = WeightKg, y = BMI)) +
+  geom_boxplot(outlier.colour="red", outlier.shape=8, outlier.size=4)
+
+# The boxplot confirms that there are outliers in this data frame.
+
+# Weight and Calories
+
+ggplot(data = weightActivity, aes(x=WeightKg_name, y=calories)) +
+  geom_point() +
+  geom_smooth(method = lm)
+
+cor(weightActivity$WeightKg_name, weightActivity$calories) # 0.37
+
+# This visualization shows that there is a weak positive correlation.
+# As evidenced by the correlation coefficient.
+# Hence, there is not strong evidence to prove that weight is correlated
+# to the calories lost.
+# From the visualization, it appears that people between 85 and 95 kgs
+# lost the most calories.
+
+# Sleep and Calories
+
+
+
+
+## SHARE: Focus morre on these people.
+
+
+
