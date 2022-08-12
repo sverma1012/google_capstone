@@ -140,7 +140,38 @@ activity %>%
   geom_point() +
   geom_smooth(method = lm)
 
-cor(activity$TotalDistance, activity$Calories)
+cor(activity$TotalDistance, activity$Calories) # 0.65
+
+# There is moderate positive correlation between the distance travelled
+# and calories lost. The 95% confidence interval is small (as seen by
+# the viz.) indicating a shorter range of possible values.
+# Hence, as the distance travelled increases, so does the calories lost.
+
+# Sedentary Minutes and Calories
+
+activity %>%
+  ggplot(aes(x = SedentaryMinutes, y = Calories)) +
+  geom_point() +
+  geom_smooth(method = lm)
+
+cor(activity$SedentaryMinutes, activity$Calories) # -0.11
+
+# There is close to no correlation between sedentary minutes and calories
+# lost. However, there is a negative trend line indicating that participants
+# who are inactive for more minutes in a day lose less calories.
+# As seen by the viz., the points are scattered across the graph and
+# hence it is not possible to make a strong correlation statement.
+
+# Fairly Active Minutes and Calories
+
+activity %>%
+  ggplot(aes(x = FairlyActiveMinutes, y = Calories)) +
+  geom_point() +
+  geom_smooth(method = lm)
+
+cor(activity$FairlyActiveMinutes, activity$Calories)
+
+# 
 
 ## SHARE: Focus more on people between 85 and 95 kgs.
   # Focus on people who sleep between 300 to 500 mins. 
