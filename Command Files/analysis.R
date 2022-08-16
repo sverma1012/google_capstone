@@ -178,14 +178,47 @@ cor(activity$FairlyActiveMinutes, activity$Calories) # 0.3
 # The correlation coefficient shows that there is not a strong or 
 # moderate correlation between fairly active minutes and calories lost.
 
+# Sedentary minutes and total steps
+
+activity %>%
+  ggplot(aes(x = SedentaryMinutes, y = TotalSteps)) +
+  geom_point() +
+  geom_smooth(method = lm)
+
+cor(activity$SedentaryMinutes, activity$TotalSteps) # 0.33
+
+# There is a weak negative correlation between the two variables.
+# Looking at the viz., it is visible that most observations record
+# less stops for people who had more inactive lifestyles.
+
+# Very Active Minutes and Total Steps
+
+activity %>%
+  ggplot(aes(x = VeryActiveMinutes, y = TotalSteps)) +
+  geom_point() +
+  geom_smooth(method = lm)
+
+cor(activity$VeryActiveMinutes, activity$TotalSteps) # 0.67
+
+mean(activity$VeryActiveMinutes) # 21 minutes
+mean(activity$SedentaryMinutes) # 991 minutes
+
+# There is moderate correlation between the two variables.
+# This makes sense because participants who were active are more
+# likely to have taken more steps and traveled longer distances.
+# There is a large difference between how long people were active
+# and were sedentary, as witnessed by their averages.
+
 ## Summary
 
+# There are not strong correlations or trends visible between most 
+# variables. However, the analysis does give insights on the 
+# characteristics of the participants and some generic trends in 
+# behavior and usage of the health device.
 
+# For instance, participants between 85 and 95 kgs lost the most
+# calories and most participants sleep the recommended 8 hours of
+# sleep. Most participants have an average of 991 sedentary minutes
+# compared to an average of 21 very active minutes.
 
-## SHARE: Focus more on people between 85 and 95 kgs.
-  # Focus on people who sleep between 300 to 500 mins. 
-  # Help people increase steps.
-# Growth opporrtunity because people are not as active.
-
-
-
+# These findings can help inform the marketing team of Bellabeat.
