@@ -82,8 +82,10 @@ ggplot(data = weight, aes(x=WeightKg, y=BMI)) +
   geom_point(alpha = 1/5, size = 2) + 
   geom_smooth(method = lm)
 
-# There is an outlier in the data with a weight of approx. 140 kgs, which could cause errors in further analysis.
-# According to the trend line, there is a positive correlation between BMI and weight.
+# There is an outlier in the data with a weight of approx. 140 kgs,
+# which could cause errors in further analysis.
+# According to the trend line, there is a positive correlation
+# between BMI and weight.
 
 ggplot(data = weight, aes(x = WeightKg, y = BMI)) +
   geom_boxplot(outlier.colour="red", outlier.shape=8, outlier.size=4)
@@ -169,14 +171,21 @@ activity %>%
   geom_point() +
   geom_smooth(method = lm)
 
-cor(activity$FairlyActiveMinutes, activity$Calories)
+cor(activity$FairlyActiveMinutes, activity$Calories) # 0.3
 
-# 
+# The points are gathered at the left side of the viz. showing that
+# most participants have less than 75 active minutes.
+# The correlation coefficient shows that there is not a strong or 
+# moderate correlation between fairly active minutes and calories lost.
+
+## Summary
+
+
 
 ## SHARE: Focus more on people between 85 and 95 kgs.
   # Focus on people who sleep between 300 to 500 mins. 
   # Help people increase steps.
-# 
+# Growth opporrtunity because people are not as active.
 
 
 
