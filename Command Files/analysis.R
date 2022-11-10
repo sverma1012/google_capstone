@@ -8,6 +8,10 @@
 install.packages("dplyr")
 library(dplyr)
 
+install.packages("tidyverse")
+
+library(ggplot2)
+
 ### Import data sets
 
 activity = read.csv("../Data/Importable Data/dailyActivity_merged.csv")
@@ -73,10 +77,6 @@ sleepActivity %>%
 ## Explore relationships
 
 # Weight and BMI
-
-install.packages("tidyverse")
-
-library(ggplot2)
 
 ggplot(data = weight, aes(x=WeightKg, y=BMI)) + 
   geom_point(alpha = 1/5, size = 2) + 
